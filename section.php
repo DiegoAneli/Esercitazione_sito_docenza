@@ -3,11 +3,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bootswatch/dist/brite/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Add active class to clicked button and corresponding content
+                    btn.classList.add('active');
+                    const tabId = btn.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+
 </head>
 <body>
 
-<div class="container py-5">
+<div class="container mb-4 py-5">
     <h2 class="text-center mb-4">Image Gallery</h2>
 
     <!-- Tab Navigation -->
@@ -15,6 +37,7 @@
         <button class="tab-btn active" data-tab="nature">Nature</button>
         <button class="tab-btn" data-tab="architecture">Architecture</button>
         <button class="tab-btn" data-tab="interior">Interior</button>
+        <button class="tab-btn" data-tab="exterior">Exterior</button>
     </div>
 
     <!-- Nature Tab -->
@@ -24,21 +47,21 @@
                 <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff" alt="Mountain lake">
                 <div class="image-overlay">
                     <h5>Mountain Lake</h5>
-                    <p class="mb-0">Pristine waters reflecting nature's beauty</p>
+                    <p class="mb-0 text-light">Pristine waters reflecting nature's beauty</p>
                 </div>
             </div>
             <div class="grid-item">
                 <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e" alt="Forest">
                 <div class="image-overlay">
                     <h5>Mystic Forest</h5>
-                    <p class="mb-0">Sunlight piercing through the trees</p>
+                    <p class="mb-0 text-light">Sunlight piercing through the trees</p>
                 </div>
             </div>
             <div class="grid-item">
                 <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Mountains">
                 <div class="image-overlay">
                     <h5>Mountain Range</h5>
-                    <p class="mb-0">Majestic peaks touching the clouds</p>
+                    <p class="mb-0 text-light">Majestic peaks touching the clouds</p>
                 </div>
             </div>
         </div>
@@ -51,21 +74,21 @@
                 <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2" alt="Modern Building">
                 <div class="image-overlay">
                     <h5>Modern Architecture</h5>
-                    <p class="mb-0">Contemporary design meets functionality</p>
+                    <p class="mb-0 text-light">Contemporary design meets functionality</p>
                 </div>
             </div>
             <div class="grid-item">
                 <img src="https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a" alt="City Architecture">
                 <div class="image-overlay">
                     <h5>Urban Landscape</h5>
-                    <p class="mb-0">City skyline at twilight</p>
+                    <p class="mb-0 text-light">City skyline at twilight</p>
                 </div>
             </div>
             <div class="grid-item">
                 <img src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8" alt="Historic Building">
                 <div class="image-overlay">
                     <h5>Historic Architecture</h5>
-                    <p class="mb-0">Classical design elements</p>
+                    <p class="mb-0 text-light">Classical design elements</p>
                 </div>
             </div>
         </div>
@@ -78,25 +101,54 @@
                 <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6" alt="Modern Interior">
                 <div class="image-overlay">
                     <h5>Modern Living</h5>
-                    <p class="mb-0">Contemporary interior design</p>
+                    <p class="mb-0 text-light">Contemporary interior design</p>
                 </div>
             </div>
             <div class="grid-item">
                 <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace" alt="Minimalist Room">
                 <div class="image-overlay">
                     <h5>Minimalist Design</h5>
-                    <p class="mb-0">Clean lines and simple elegance</p>
+                    <p class="mb-0 text-light">Clean lines and simple elegance</p>
                 </div>
             </div>
             <div class="grid-item">
                 <img src="https://images.unsplash.com/photo-1616137466211-f939a420be84" alt="Cozy Space">
                 <div class="image-overlay">
                     <h5>Cozy Corner</h5>
-                    <p class="mb-0">Warm and inviting interior</p>
+                    <p class="mb-0 text-light">Warm and inviting interior</p>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Exterior Tab -->
+    <div class="tab-content" id="exterior">
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6" alt="Modern Interior">
+                <div class="image-overlay">
+                    <h5>Modern Living</h5>
+                    <p class="mb-0 text-light">Contemporary interior design</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace" alt="Minimalist Room">
+                <div class="image-overlay">
+                    <h5>Minimalist Design</h5>
+                    <p class="mb-0 text-light">Clean lines and simple elegance</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="https://images.unsplash.com/photo-1616137466211-f939a420be84" alt="Cozy Space">
+                <div class="image-overlay">
+                    <h5>Cozy Corner</h5>
+                    <p class="mb-0 text-light">Warm and inviting interior</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
 </div>
     
 
